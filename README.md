@@ -12,6 +12,10 @@
 3. Create a list of the 40 titles, while caching the information of the latest title (first `<title>` is the latest)
 4. Run steps 1.-3. every `X` minutes
 
+## Note:
+
+As a backup, similar RSS feed https://predb.ovh/api/v1/rss can be used, or for searching REST API https://predb.ovh/api/v1/?q=foobar can also be used.
+
 ---
 
-_Last update: Wed Jan  8 23:46:44 UTC 2020_
+_Last update: Thu Jan 9 00:22:18 UTC 2020_
