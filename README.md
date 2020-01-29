@@ -19,10 +19,39 @@
 3. Create a list of the 40 titles, while caching the information of the latest title (first `<title>` is the latest)
 4. Run steps 1.-3. every `X` minutes
 
+## Example of Usage
+
+- Send daily summary of all CZ/CZECH releases via e-mail:
+
+- `crontab -e`:
+
+```text
+MAILTO=""
+# Get releases every 5 minutes
+*/5 * * * * /home/lmaly/predb | grep -i 'cz\|czech' >> predb_cz
+```
+
+- `cat /etc/cron.daily/predb`:
+
+```bash
+#!/bin/bash
+
+# Variables
+PREDB_CZ=$(cat /home/lmaly/predb_cz | sort | uniq)
+MAILTO_USER=lmaly
+TODAY=$(date -u)
+
+# Main function
+echo -e "FROM: ${MAILTO_USER}\nTO: ${MAILTO_USER}\nSubject: Predb.me matches for ${TODAY}\n\n${PREDB_CZ}" | sendmail -t
+
+# Cleanup
+cat /dev/null > /home/lmaly/predb_cz
+```
+
 ## Note:
 
 As a backup, similar RSS feed https://predb.ovh/api/v1/rss can be used, or for searching REST API https://predb.ovh/api/v1/?q=foobar can also be used.
 
 ---
 
-_Last update: Thu Jan 23 23:52:43 UTC 2020_
+_Last update: Wed Jan 29 05:01:11 UTC 2020_
