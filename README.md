@@ -42,7 +42,12 @@ MAILTO_USER=lmaly
 TODAY=$(date -u)
 
 # Main function
-echo -e "FROM: ${MAILTO_USER}\nTO: ${MAILTO_USER}\nSubject: Predb.me matches for ${TODAY}\n\n${PREDB_CZ}" | sendmail -t
+if [ -z "$PREDB_CZ" ]
+then
+  echo "PREDB_CZ is empty!"
+else
+  echo -e "FROM: ${MAILTO_USER}\nTO: ${MAILTO_USER}\nSubject: Predb.me matches for ${TODAY}\n\n${PREDB_CZ}" | sendmail -t
+fi
 
 # Cleanup
 cat /dev/null > /home/lmaly/predb_cz
