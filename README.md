@@ -27,8 +27,8 @@
 
 ```text
 MAILTO=""
-# Get releases every 5 minutes
-*/5 * * * * /home/lmaly/predb | grep -i 'cz\|czech' >> predb_cz
+# Get releases every 2 minutes
+*/2 * * * * /home/lmaly/predb | grep -i 'cz\|czech' >> predb_cz
 ```
 
 - `cat /etc/cron.daily/predb`:
@@ -55,8 +55,8 @@ cat /dev/null > /home/lmaly/predb_cz
 
 ## Note:
 
-As a backup, similar RSS feed https://predb.ovh/api/v1/rss can be used, or for searching REST API https://predb.ovh/api/v1/?q=foobar can also be used.
+To search specific queries - use e.g. https://predb.me/?search=czech&rss=1. As a backup, similar RSS feed exists - https://predb.ovh/api/v1/rss. Same URL has HTTP REST API for searching: https://predb.ovh/api/v1/?q=foobar.
 
 ---
 
-_Last update: Wed Jan 29 05:01:11 UTC 2020_
+_Last update: Thu Feb 20 12:57:26 UTC 2020_
