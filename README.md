@@ -35,6 +35,7 @@ An example:
 MAILTO=""
 # Get releases every 2 minutes
 */2 * * * * /home/lmaly/predb | grep -i "\.CZ\.\|czech\|\-CZ\-" >> predb_cz```
+```
 
 - `cat /etc/cron.daily/predb`:
 
